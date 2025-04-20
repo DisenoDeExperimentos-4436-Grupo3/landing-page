@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const faqQuestions = document.querySelectorAll('.faq-question');
   const sections = document.querySelectorAll('section');
   const contactForm = document.querySelector('.contact-form');
+  const newsletterForm = document.querySelector('.newsletter-form');
 
   // Función para el menú móvil
   if (hamburger) {
@@ -115,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const nombre = document.getElementById('nombre');
       const email = document.getElementById('email');
       const mensaje = document.getElementById('mensaje');
+      const empresa = document.getElementById('empresa');
       let isValid = true;
       
       if (!nombre.value.trim()) {
@@ -145,22 +147,60 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isValid) {
         // Simulación de envío exitoso
         const submitButton = contactForm.querySelector('.submit-button');
-        const originalText = submitButton.textContent;
+        const originalButtonText = submitButton.innerHTML;
         
         submitButton.disabled = true;
-        submitButton.textContent = 'Enviando...';
+        submitButton.innerHTML = '<span class="button-text">Enviando...</span>';
         
         // Simular una petición con un retraso
         setTimeout(() => {
           // Mostrar mensaje de éxito
-          contactForm.innerHTML = `
+          const formCard = document.querySelector('.form-card');
+          formCard.innerHTML = `
             <div class="success-message">
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
               <h3>¡Mensaje enviado correctamente!</h3>
-              <p>Gracias por contactarnos. Te responderemos lo antes posible.</p>
+              <p>Gracias por contactarnos. Nuestro equipo te responderá lo antes posible.</p>
             </div>
           `;
         }, 1500);
       }
+    });
+  }
+
+  // Validación del formulario de newsletter
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const emailInput = newsletterForm.querySelector('input[type="email"]');
+      const submitButton = newsletterForm.querySelector('button');
+      
+      if (!emailInput.value.trim() || !isValidEmail(emailInput.value)) {
+        emailInput.style.borderColor = '#dc3545';
+        return;
+      }
+      
+      // Simular suscripción exitosa
+      const originalButtonText = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando...';
+      
+      setTimeout(() => {
+        submitButton.textContent = '¡Suscrito!';
+        submitButton.style.backgroundColor = '#28a745';
+        emailInput.value = '';
+        
+        // Restablecer el botón después de un tiempo
+        setTimeout(() => {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+          submitButton.style.backgroundColor = '';
+        }, 3000);
+      }, 1500);
     });
   }
 
@@ -177,6 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     errorElement.textContent = message;
     formGroup.classList.add('error');
+    input.setAttribute('aria-invalid', 'true');
   }
   
   function removeError(input) {
@@ -188,6 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     formGroup.classList.remove('error');
+    input.setAttribute('aria-invalid', 'false');
   }
   
   function isValidEmail(email) {
@@ -196,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Animación de aparecer elementos al hacer scroll
-  const animatedElements = document.querySelectorAll('.feature-item, .benefit-card, .section-title');
+  const animatedElements = document.querySelectorAll('.feature-item, .benefit-card, .section-title, .form-card, .contact-info');
   
   const animateOnScroll = () => {
     const triggerBottom = window.innerHeight * 0.8;
@@ -215,4 +257,47 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Y cada vez que se hace scroll
   window.addEventListener('scroll', animateOnScroll);
+
+  // Contador de estadísticas para la sección de beneficios (opcional)
+  const startCounters = () => {
+    const counters = document.querySelectorAll('.counter');
+    
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      const duration = 2000; // duración en ms
+      const increment = target / (duration / 16); // 60fps
+      
+      let current = 0;
+      
+      const updateCounter = () => {
+        current += increment;
+        counter.textContent = Math.round(current);
+        
+        if (current < target) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target;
+        }
+      };
+      
+      updateCounter();
+    });
+  };
+  
+  // Iniciar contadores cuando la sección de beneficios está en el viewport
+  const benefitsSection = document.getElementById('benefits');
+  
+  if (benefitsSection) {
+    const checkScrollPosition = () => {
+      const sectionPosition = benefitsSection.getBoundingClientRect();
+      
+      if (sectionPosition.top < window.innerHeight && sectionPosition.bottom > 0) {
+        startCounters();
+        window.removeEventListener('scroll', checkScrollPosition);
+      }
+    };
+    
+    window.addEventListener('scroll', checkScrollPosition);
+    checkScrollPosition(); // Verificar al cargar la página
+  }
 });
