@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@300;400;700&display=swap" rel="stylesheet">
+  <title>ManageWise</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    nav a.active {
+      font-weight: bold;
+      color: var(--secundario);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="sidebar">
+      <li onclick="hideSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+      <li><a href="#faq-section" class="nav-link">FAQ</a></li>
+      <li><a href="#DescripcionGeneral" class="nav-link">Descripcion General</a></li>
+      <li><a href="#Beneficios" class="nav-link">Beneficios</a></li>
+      <li><a href="#Nosotros" class="nav-link">Nosotros</a></li>
+      <li><a href="#Contactanos" class="nav-link">Contáctanos</a></li>
+      <li><a href="https://frontend-test-managewise.vercel.app/sign-in">Iniciar Sesión</a></li>
+      <li><a href="https://frontend-test-managewise.vercel.app/sign-up" id="registro">Registrarse</a></li>
+    </ul>
+    <img src="img/ManageWise_logo.jpg">
+    <ul>
+      <li><a href="#">ManageWise</a></li>
+      <li class="hideOnMobile"><a href="#faq-section" class="nav-link">FAQ</a></li>
+      <li class="hideOnMobile"><a href="#DescripcionGeneral" class="nav-link">Descripcion General</a></li>
+      <li class="hideOnMobile"><a href="#Beneficios" class="nav-link">Beneficios</a></li>
+      <li class="hideOnMobile"><a href="#Nosotros" class="nav-link">Nosotros</a></li>
+      <li class="hideOnMobile"><a href="#Contactanos" class="nav-link">Contáctanos</a></li>
+      <li class="hideOnMobile"><a href="https://frontend-test-managewise.vercel.app/sign-in">Iniciar Sesión</a></li>
+      <li class="hideOnMobile"><a href="https://frontend-test-managewise.vercel.app/sign-up" id="registro">Registrarse</a></li>
+      <li class="menu-button" onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+    </ul>
+  </nav>
+  <header>
+    <section id="banner">
+        <div id="eslogan">
+            <h1>Optimiza el desarrollo y lidera con <span class="highlight">ManageWise</span></h1><br>
+            <h3>Acelera la colaboración y mantén el control total de proyectos de desarrollo de software.</h3><br>
+            <button class="probar" onclick="window.location.href='https://frontend-test-managewise.vercel.app/sign-up'">Registrarse</button>
+        </div>
+        <img src="img/banner.png" width="500px" class="imagenReferencia">
+    </section>
+</header>
+
+<!--características principales-->
+<section id="DescripcionGeneral">
+    <div class="contenedorDescripcion">
+        <img src="img/descripcion1.png" width="500px" class="imagenReferencia">
+        <br>
+        <div class="puntos">
+            <h3>Estadisticas de los sprints</h3><br>
+            <p>Monitorea el progreso de las historias de usuario de cada sprint de forma clara y precisa. Visualiza el porcentaje completado, identifica las historias pendientes y asegura que el equipo se mantenga alineado para alcanzar los objetivos del proyecto de manera eficiente.</p>
+            <br>
+        </div>
+    </div>
+    <div class="contenedorDescripcion">
+        <div class="puntos">
+            <h3>Administración de miembros del equipo y grupos</h3><br>
+            <p>Monitorea de forma detallada a cada miembro del equipo, visualizando su rol y ver lo detalles. Además, sigue de cerca su participación y progreso dentro del proyecto, garantizando que cada uno esté alineado con las metas establecidas.</p>
+            <br>
+        </div>
+        <img src="img/descripcion2.png" width="500px" class="imagenReferencia">
+        <br>
+    </div>
+    <div class="contenedorDescripcion">
+        <img src="img/descripcion3.png" width="500px" class="imagenReferencia">
+        <br>
+        <div class="puntos">
+            <h3>Administración de Backlog</h3><br>
+            <p>Manejar cada backlog de manera interactiva y sencilla, permite a los usuarios crear, editar y organizar historias de usuario y épicos con facilidad. Esta funcionalidad asegura una planificación eficiente y un seguimiento claro de las tareas, promoviendo una colaboración efectiva dentro del equipo.</p>
+            <br>
+        </div>
+    </div>
+</section>
+
+<!--beneficios principales-->
+<section id="Beneficios">
+    <div class="contenedorBeneficios">
+        <img src="img/beneficio.png" width="100px">
+        <h3>Mejora el ambiente laboral</h3> <br>
+        <p>Mejora la gestión del trabajo con ManageWise y reduce asi la incertidumbre, generando un ambiente más organizado y menos conflictivo.</p>
+    </div>
+    <div class="contenedorBeneficios">
+        <img src="img/beneficio.png" width="100px">
+        <h3>Aumenta la transparencia</h3> <br>
+        <p>Proporciona visibilidad total del progreso y los problemas del proyecto a todos los interesados, mejorando la confianza y la responsabilidad.</p>
+    </div>
+    <div class="contenedorBeneficios">
+        <img src="img/beneficio.png" width="100px">
+        <h3>Mejora la toma de decisiones</h3><br>
+        <p>Proporciona datos en tiempo real y análisis predictivos que permiten tomar decisiones informadas y reducir el riesgo de fracaso.</p>
+    </div>
+</section>
+
+<section id="Nosotros">
+    <div id="nosotrosHorizon">
+        <h3>Nosotros</h3><br>
+        <p>Horizon es una startup dedicada a desarrollar soluciones innovadoras para optimizar la gestión de proyectos en empresas de software. Nos enfocamos en crear herramientas que mejoren la eficiencia, fomenten la colaboración y ayuden a los equipos a alcanzar sus objetivos de manera efectiva.
+        <br><br>
+        Nuestra misión es elevar la eficiencia y calidad de los proyectos en startups de software, optimizando flujos de trabajo y facilitando la toma de decisiones basadas en datos.
+        <br><br>    
+        Aspiramos a ser líderes en la gestión de proyectos de software, ofreciendo soluciones que impulsen el éxito y el crecimiento sostenible de las empresas emergentes.</p>
+    </div>
+</section>
+<section id="faq-section">
+  <h2>Preguntas Frecuentes</h2>
+  <div class="faq" onclick="toggleAnswer(this)">
+    <h4>¿Qué es ManageWise?</h4>
+    <div class="faq-answer">
+      <p>ManageWise es una plataforma diseñada para optimizar la gestión de proyectos en empresas de software, facilitando la colaboración y el seguimiento del progreso del equipo.</p>
+    </div>
+  </div>
+  <div class="faq" onclick="toggleAnswer(this)">
+    <h4>¿Cómo puedo registrarme?</h4>
+    <div class="faq-answer">
+      <p>Puedes registrarte haciendo clic en el botón "Registrarse" en la parte superior de la página y siguiendo las instrucciones.</p>
+    </div>
+  </div>
+  <div class="faq" onclick="toggleAnswer(this)">
+    <h4>¿Qué beneficios ofrece ManageWise?</h4>
+    <div class="faq-answer">
+      <p>ManageWise ofrece mejoras en la transparencia, la toma de decisiones y el ambiente laboral, entre otros beneficios que optimizan la gestión de proyectos.</p>
+    </div>
+  </div>
+  <div class="faq" onclick="toggleAnswer(this)">
+    <h4>¿Es facil de usar?</h4>
+    <div class="faq-answer">
+      <p>Si, ManageWise es facil de usar para cualquier usuario que quiera gestionar un proyecto usando metodo SCRUM</p>
+    </div>
+  </div>
+</section>
+<section id="Contactanos">
+    <div class="contenedorContacto">
+      <h2>Contáctanos</h2>
+      <p>¿Tienes preguntas o necesitas ayuda? ¡Estamos aquí para ti!</p>
+      <form action="/enviar-mensaje" method="POST">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="enviar">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+<hr><br><br>
+
+
+<footer>
+  <h4>&copy; 2024 Horizon</h4>
+<!--Apartado redes sociales-->
+  <div id="siguenos">
+      <h3>Síguenos</h3>
+      <a href="https://www.facebook.com" target="_blank" class="facebook-logo">
+          <img width="40px" src="img/logo_fb.png" alt="Facebook Logo">
+      </a>
+      <a href="https://www.instagram.com" target="_blank" class="instagram-logo">
+          <img width="40px" src="img/logo_ig.webp" alt="instagramLogo">
+      </a>
+      <a href="https://www.x.com" target="_blank" class="x-logo">
+          <img width="40px" src="img/logo_x.avif" alt="x Logo">
+      </a>
+  </div>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
